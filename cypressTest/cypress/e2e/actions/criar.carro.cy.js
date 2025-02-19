@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
+
 import LOC_TELA_HOME from "../../support/locators/loc.tela.home";
-import LOC_TELA_LOGIN from "../../support/locators/loc.tela.login";
+import LOC_TELA_FORMULARIO from "../../support/locators/loc.tela.cadastrar";
 
 context("Teste Tela Criar  Carros", () => {
   let json;
@@ -44,12 +45,32 @@ context("Teste Tela Criar  Carros", () => {
 
   describe("Teste Formulario Criar", () => {
     beforeEach(() => {
-      cy.get(LOC_TELA_HOME.BOTAO_CADASTRAR_NOVO_CARRO);
+      cy.get(LOC_TELA_HOME.BOTAO_CADASTRAR_NOVO_CARRO).click();
       cy.adicionarNovoCarro(carros[0]);
     });
 
     it("não posso cadastrar carro sem infomar nome marca", () => {
-      
+      cy.get(LOC_TELA_FORMULARIO.CAMPO_MARCA_CARRO).clear();
+      cy.get(LOC_TELA_FORMULARIO.BOTAO_CADASTRAR_CARRO)
+        .last()
+        .click({ force: true });
+      cy.get(LOC_TELA_HOME.BOTAO_CADASTRAR_NOVO_CARRO).should("not.be.visible");
+    });
+
+    it("não posso cadastrar carro sem infomar nome carro", () => {
+      cy.get(LOC_TELA_FORMULARIO.CAMPO_NOME_CARRO).clear();
+      cy.get(LOC_TELA_FORMULARIO.BOTAO_CADASTRAR_CARRO)
+        .last()
+        .click({ force: true });
+      cy.get(LOC_TELA_HOME.BOTAO_CADASTRAR_NOVO_CARRO).should("not.be.visible");
+    });
+
+    it("não posso cadastrar carro sem infomar nome marca", () => {
+      cy.get(LOC_TELA_FORMULARIO.CAMPO_HP).clear();
+      cy.get(LOC_TELA_FORMULARIO.BOTAO_CADASTRAR_CARRO)
+        .last()
+        .click({ force: true });
+      cy.get(LOC_TELA_HOME.BOTAO_CADASTRAR_NOVO_CARRO).should("not.be.visible");
     });
   });
 });

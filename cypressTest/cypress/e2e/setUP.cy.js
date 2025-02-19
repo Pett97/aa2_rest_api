@@ -7,4 +7,5 @@ it('Deletar Carro Base',()=>{
 
 it("Criar Carro Base",()=>{
   cy.criarCarroFordGt140();
+  cy.criarCarroFerrariENZO450();
 });

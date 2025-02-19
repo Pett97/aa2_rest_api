@@ -50,9 +50,30 @@ Cypress.Commands.add("criarCarroFordGt140", () => {
       url: `${DATABASE_URL}/api/collections/cars/records`, 
       body: {
         id:"5hepo31gvjxxv3c",
-        brand: "cypress",
-        name: "JavaScript",
-        hp: 123,
+        brand: "FORD",
+        name: "GT",
+        hp: 140,
+      },
+      headers: {
+        Authorization: `Bearer ${meuToken}`,
+        "Content-Type": "application/json",
+      },
+    }).then(response => {
+      console.log('Carro criado:', response);
+    });
+  });
+});
+
+Cypress.Commands.add("criarCarroFerrariENZO450", () => {
+  cy.meuLogin().then(() => {
+    cy.request({
+      method: 'POST', 
+      url: `${DATABASE_URL}/api/collections/cars/records`, 
+      body: {
+        id:"5hepo31gvjxxv3d",
+        brand: "FERRARI",
+        name: "ENZO",
+        hp: 450,
       },
       headers: {
         Authorization: `Bearer ${meuToken}`,
@@ -77,4 +98,17 @@ Cypress.Commands.add("adicionarNovoCarro",(carro)=>{
     .last()
     .type(carro.hp,{force:true})  
 });
+
+Cypress.Commands.add("editarCarro",(nomeCarro)=>{
+  cy.get(`div:contains(${nomeCarro}) div:contains(Editar):last`)
+  .should('be.visible')
+  .click();
+});
+
+Cypress.Commands.add("deletarCarro",(nomeCarro)=>{
+  cy.get(`div:contains(${nomeCarro}) div:contains(Deletar):last`)
+  .should('be.visible')
+  .click();
+});
+
 
