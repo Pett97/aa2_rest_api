@@ -1,0 +1,9 @@
+{
+  "carros": [
+    { "brand": "Ford", "name": "Mustang", "hp": 450 },
+    { "brand": "Chevrolet", "name": "Camaro", "hp": 430 },
+    { "brand": "Dodge", "name": "Challenger", "hp": 485 },
+    { "brand": "Ferrari", "name": "488 GTB", "hp": 660 },
+    { "brand": "Lamborghini", "name": "Aventador", "hp": 690 }
+  ]
+}

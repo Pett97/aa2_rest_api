@@ -1,0 +1,10 @@
+{
+  "name": "cypressTest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^14.0.3",
+    "faker": "^6.6.6"
+  }
+}

@@ -22,8 +22,8 @@ export default function index() {
             const result = await DATABASE_API.post(
               "/api/collections/users/auth-with-password",
               {
-                identity: "teste2@gmail.com",
-                password: "peterson1234567890",
+                identity: "cypressPett@gmail.com",
+                password: "pett123456",
               }
             );
 

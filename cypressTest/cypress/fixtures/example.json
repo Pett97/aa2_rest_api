@@ -1,0 +1,4 @@
+{
+  "BASE_URL_PROJETO": "http://localhost:8081/",
+  "BASE_URL_DATABASE": "http://127.0.0.1:8090"
+}

@@ -3,6 +3,9 @@
 # dependencies
 node_modules/
 
+#node modules cypress
+cypressTest/node_modules/
+
 # Expo
 .expo/
 dist/

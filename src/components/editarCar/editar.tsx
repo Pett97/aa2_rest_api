@@ -102,7 +102,7 @@ function EditarCarro() {
         <Button
           title="Voltar"
           onPress={() => {
-            router.push("/userspace/userspace");
+            router.push("/home/Home");
           }}
         />
         <Button title="Atualizar" onPress={atualizarCarro} />
