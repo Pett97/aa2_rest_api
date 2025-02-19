@@ -32,3 +32,19 @@ http://<seu_ip_local>:8090/_/
 
 ## rodar o projeto 
 yarn start
+
+## TESTES
+navegar para a pasta cypressTest
+instalar as dependencias com yarn install
+
+rodar os teste com 
+
+## R
+A diferença entre testes unitários e testes E2E (End-to-End) em aplicações mobile está no escopo e no objetivo de cada um:
+
+Testes Unitários são testes da aplicaçao nos modelos ou classes necessarias exemplo 
+testar um comportamento de um objeto ou a ação de um controller no caso do mobile com react seria os comportamentos de um componente ou ação de um hook 
+
+ja os teste E2E são os testes que envolvem a execução e operabilidade do usuario no sistema 
+exemplo um componente List deve trazer a lista de produtos e cada Item da lista deve ter um componente comprar que vai adicionar o produto a uma lista de compra por exemplo 
+

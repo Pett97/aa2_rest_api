@@ -5,7 +5,7 @@ const DATABASE_URL = "http://127.0.0.1:8090";
 
 import LOC_TELA_LOGIN from "../../support/locators/loc.tela.login";
 
-context("TESTES API EDITAR CARRO", () => {
+context("TESTES API DELETAR CARRO", () => {
   beforeEach(() => {
     cy.visit(BASE_URL).then(() => {
       cy.intercept(
@@ -22,15 +22,15 @@ context("TESTES API EDITAR CARRO", () => {
     });
   });
 
-  it("CRIAR CARRO PARA EDITAR", function () {
+  it("criar Carro VW FUSCA", function () {
     cy.get("@meuToken").then((token) => {
       cy.request({
         method: "POST",
         url: `${DATABASE_URL}/api/collections/cars/records`,
         body: {
-          id: "5hepo31gvjxxv3i",
-          brand: "GM",
-          name: "CELTA_CABULOSO",
+          id: "5hepo31gvjxxv5x",
+          brand: "VW",
+          name: "FUSCA",
           hp: 140,
         },
         headers: {
@@ -42,4 +42,24 @@ context("TESTES API EDITAR CARRO", () => {
       });
     });
   });
+
+  it("devo conseguir deletar o carro VW FUSCA",function(){
+    cy.get("@meuToken").then((token) => {
+      cy.request({
+        method: "DELETE",
+        url: `${DATABASE_URL}/api/collections/cars/records/5hepo31gvjxxv5x`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        expect(response.status).to.be.oneOf([204]);
+      });
+    }).then(()=>{
+      cy.reload();
+    })
+  });
+
+
+
 });
