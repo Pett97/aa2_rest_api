@@ -4,7 +4,7 @@ import { useTokenContext } from "../src/context/userContext";
 import DATABASE_API from "../src/services/database.API";
 
 
-export default function index() {
+export default function Index() {
   const { token, setToken } = useTokenContext();
 
   if (token) return <Redirect href="/home/Home" />;
